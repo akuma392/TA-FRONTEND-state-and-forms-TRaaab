@@ -51,13 +51,14 @@
           this.state = {
             counter: 0,
             step: 1,
-            max: Infinity,
+            max: 1000,
           };
         }
 
         handleIncrement = () => {
+          let { step, counter, max } = this.state;
           this.setState({
-            counter: this.state.counter + this.state.step,
+            counter: counter + step > max ? counter : counter + step,
           });
         };
         handleDecrement = () => {
@@ -85,16 +86,18 @@
           });
         };
         handleCheck = () => {
-          if (this.state.counter < this.state.max) {
-            return this.state.counter;
-          } else {
-            alert('you have exceeded the max value');
-          }
+          // alert('you have exceeded the max value');
+          // console.log(this.state.counter);
+
+          return this.state.counter;
         };
         render() {
           return (
             <center>
-              <h1>{this.handleCheck}</h1>
+              <h1>{this.state.counter}</h1>
+              {this.state.counter === this.state.max
+                ? alert('You have reached max value')
+                : ''}
               <div className="step">
                 <h3>Steps</h3>
                 {this.step.map((elm) => (
