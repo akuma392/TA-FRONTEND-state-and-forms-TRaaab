@@ -15,21 +15,29 @@ class App extends React.Component {
 
     this.state = {
       image: '/assets/basketball.jpg',
+      active: 'basketball',
     };
   }
   handleClick = (event) => {
     let val = event.target.innerText;
     this.setState({
       image: this.data[val],
+      active: val,
     });
     console.log('hello');
     console.log(event.target.innerText);
+    console.log(this.state);
   };
   render() {
     return (
       <center>
         {Object.keys(this.data).map((key) => (
-          <button className="btn" key={key} onClick={this.handleClick}>
+          <button
+            id="btn"
+            className={this.state.active === key ? 'active' : ''}
+            key={key}
+            onClick={this.handleClick}
+          >
             {key}
           </button>
         ))}
