@@ -112,13 +112,20 @@
               <ul>
                 {this.questions.map((elm, i) => (
                   <li key={i}>
-                    <div className="block">
+                    <div
+                      className="block"
+                      id={elm.Q === this.state.selectedQuestion ? 'active' : ''}
+                    >
                       <p key={i * 5}>{elm.Q}</p>
 
                       <i
                         key={i * 100}
                         onClick={() => this.handleClick(elm)}
-                        className="fas fa-long-arrow-alt-down"
+                        className={
+                          elm.Q === this.state.selectedQuestion
+                            ? 'fas fa-long-arrow-alt-up'
+                            : 'fas fa-long-arrow-alt-down'
+                        }
                       ></i>
                     </div>
                     {this.state.selectedQuestion === elm.Q ? (
