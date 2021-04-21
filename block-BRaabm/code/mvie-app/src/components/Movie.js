@@ -1,7 +1,5 @@
 import React from 'react';
 import data from './data.json';
-import List from './List';
-import Modal from './Modal';
 
 class Movie extends React.Component {
   constructor(props) {
@@ -12,36 +10,80 @@ class Movie extends React.Component {
     };
   }
 
+  handleMovie = (film) => {
+    this.setState({
+      movie: film.Title,
+    });
+  };
+  handleClear = () => {
+    this.setState({
+      movie: '',
+    });
+  };
+
+  handleView = (condition) => {
+    if (!condition) {
+      return (
+        <ul className="rootElm">
+          {data.map((elm) => {
+            return (
+              <li className="card">
+                <h2>{elm.Title}</h2>
+                <div className="image-block">
+                  <img src={elm.Images[0]} alt="" />
+                </div>
+                <h4>{elm.Actors}</h4>
+                <p>{elm.Released}</p>
+                <h6>{elm.Type}</h6>
+
+                <div className="more">
+                  <button onClick={() => this.handleMovie(elm)} className="btn">
+                    More info
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    } else {
+      let movie = data.filter((elm) => elm.Title === this.state.movie)[0];
+      console.log(movie, 'movieeeeeeeeeeeeeeeeeeeeeeeeeeee');
+      return (
+        <div className="modal">
+          <h3 className="title">{movie.Title}</h3>
+          <button onClick={this.handleClear} className="btm">
+            X
+          </button>
+          <div className="modal-image">
+            <img src={movie.Images[0]} alt="" />
+          </div>
+          <p className="year">year: {movie.Year}</p>
+          <p className="release">{movie.Released} </p>
+          <p className="runtime">{movie.Runtime}</p>
+          <p className="gener">{movie.Gener}</p>
+          <p className="director"> Directed by: {movie.Director}</p>
+          <p className="actor">cast: {movie.Actors}</p>
+          <p className="writer">written by:{movie.Writer} </p>
+          <p className="plot">{movie.Plot}</p>
+          <p className="country">{movie.Country}</p>
+          <p className="lang">{movie.Language}</p>
+          <p className="awards">{movie.Awards}</p>
+          <p className="imdb">{movie.imdbRating}</p>
+          <p className="votes">{movie.imdbVotes}</p>
+          <div className="gallery">
+            {movie.Images.map((ele) => {
+              return <img src={ele} alt="" />;
+            })}
+          </div>
+        </div>
+      );
+    }
+  };
+
   render() {
-    return (
-      <>
-        {/* <List data={data} /> */}
-        <Modal />
-      </>
-    );
+    return <>{this.handleView(this.state.movie)}</>;
   }
 }
 
 export default Movie;
-
-// "Title": "Gotham",
-// "Year": "2014–",
-// "Rated": "TV-14",
-// "Released": "01 Aug 2014",
-// "Runtime": "42 min",
-// "Genre": "Action, Crime, Drama",
-// "Director": "N/A",
-// "Writer": "Bruno Heller",
-// "Actors": "Ben McKenzie, Donal Logue, David Mazouz, Sean Pertwee",
-// "Plot": "The story behind Detective James Gordon's rise to prominence in Gotham City in the years before Batman's arrival.",
-// "Language": "English",
-// "Country": "USA",
-// "Awards": "Nominated for 4 Primetime Emmys. Another 3 wins & 22 nominations.",
-// "Poster": "http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg",
-// "Metascore": "N/A",
-// "imdbRating": "8.0",
-// "imdbVotes": "133,375",
-// "imdbID": "tt3749900",
-// "Type": "series",
-// "totalSeasons": "3",
-// "Response": "True",

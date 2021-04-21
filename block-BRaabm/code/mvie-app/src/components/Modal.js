@@ -1,45 +1,29 @@
 function Modal(props) {
+  let movie = props.movie;
   return (
     <div className="modal">
-      <h3 className="title">300</h3>
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NTEwOTMxMV5BMl5BanBnXkFtZTgwMjMyODgxMzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg"
-        alt=""
-      />
-      <p className="year">2015</p>
-      <p className="release"> 7 novembeer 2016</p>
-      <p className="runtime">109 mins</p>
-      <p className="gener">"Genre": "Adventure, Drama, Sci-Fi",</p>
-      <p className="director"> "Director": "Christopher Nolan",</p>
-      <p className="actor">
-        "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John
-        Lithgow",
-      </p>
-      <p className="writer"> "Writer": "Jonathan Nolan, Christopher Nolan",</p>
-      <p className="plot">
-        "Plot": "A team of explorers travel through a wormhole in space in an
-        attempt to ensure humanity's survival.",
-      </p>
-      <p className="country">"Country": "USA, UK",</p>
-      <p className="lang">"Language": "English",</p>
-      <p className="awards">
-        "Awards": "Won 1 Oscar. Another 39 wins & 134 nominations.",
-      </p>
-      <p className="imdb">"imdbRating": "8.6",</p>
-      <p className="votes">"imdbVotes": "937,412",</p>
+      <h3 className="title">{movie.Title}</h3>
+      <button className="btm">X</button>
+      <div className="modal-image">
+        <img src={movie.Images[0]} alt="" />
+      </div>
+      <p className="year">year: {movie.Year}</p>
+      <p className="release">{movie.Released} </p>
+      <p className="runtime">{movie.Runtime}</p>
+      <p className="gener">{movie.Gener}</p>
+      <p className="director"> Directed by: {movie.Director}</p>
+      <p className="actor">cast: {movie.Actors}</p>
+      <p className="writer">written by:{movie.Writer} </p>
+      <p className="plot">{movie.Plot}</p>
+      <p className="country">{movie.Country}</p>
+      <p className="lang">{movie.Language}</p>
+      <p className="awards">{movie.Awards}</p>
+      <p className="imdb">{movie.imdbRating}</p>
+      <p className="votes">{movie.imdbVotes}</p>
       <div className="gallery">
-        <img
-          src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NTEwOTMxMV5BMl5BanBnXkFtZTgwMjMyODgxMzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg"
-          alt=""
-        />
-        <img
-          src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NTEwOTMxMV5BMl5BanBnXkFtZTgwMjMyODgxMzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg"
-          alt=""
-        />
-        <img
-          src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NTEwOTMxMV5BMl5BanBnXkFtZTgwMjMyODgxMzE@._V1_SX1500_CR0,0,1500,999_AL_.jpg"
-          alt=""
-        />
+        {movie.Images.map((ele) => {
+          return <img src={ele} alt="" />;
+        })}
       </div>
     </div>
   );
