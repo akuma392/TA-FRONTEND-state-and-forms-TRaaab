@@ -3,7 +3,9 @@ function Modal(props) {
   return (
     <div className="modal">
       <h3 className="title">{movie.Title}</h3>
-      <button className="btm">X</button>
+      <button className="btm" onClick={props.handleClear}>
+        X
+      </button>
       <div className="modal-image">
         <img src={movie.Images[0]} alt="" />
       </div>
