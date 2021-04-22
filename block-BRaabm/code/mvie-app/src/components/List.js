@@ -13,7 +13,9 @@ function List(props) {
             <h6>{elm.Type}</h6>
 
             <div className="more">
-              <button className="btn">More info</button>
+              <button onClick={() => props.handleMovie(elm)} className="btn">
+                More info
+              </button>
             </div>
           </li>
         );
