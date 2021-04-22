@@ -1,20 +1,25 @@
 function Card(props) {
-  function handleStyle(elm) {
-    console.log(elm);
+  // function handleStyle() {
+  //   console.log(`font-size:` + props.state.intialFont + 'px');
 
-    // return `${elm.name}`;
-  }
+  //   // return `font-size:` + props.state.intialFont + 'px';
+  // }
   return (
     <ul className="rootElm">
       {props.data.map((elm) => {
         return (
-          <li>
+          <li key={elm}>
             <div>
               <p>{elm.name}</p>
-              <span>{elm.styles}</span>
+              <span>{elm.styles} styles</span>
             </div>
 
-            <h2 style={handleStyle(elm)}>{props.state}</h2>
+            <h2
+              className={elm.name}
+              style={{ fontSize: props.state.intialFont }}
+            >
+              {props.state.intialValue}
+            </h2>
           </li>
         );
       })}

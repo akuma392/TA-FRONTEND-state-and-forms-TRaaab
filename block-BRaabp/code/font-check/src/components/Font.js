@@ -8,9 +8,15 @@ class Font extends React.Component {
 
     this.state = {
       intialValue: 'hello React',
+      intialFont: '16px',
     };
   }
 
+  handleFontSize = (event) => {
+    this.setState({
+      intialFont: event.target.value + 'px',
+    });
+  };
   handleChange = (event) => {
     this.setState({
       intialValue: event.target.value,
@@ -28,10 +34,17 @@ class Font extends React.Component {
             placeholder="type text"
             onChange={this.handleChange}
           ></input>
-          <label for="vol">Pixel (between 0 and 80):</label>
-          <input type="range" id="vol" name="vol" min="0" max="80" />
+          <label htmlFor="vol">Pixel (between 0 and 80):</label>
+          <input
+            onChange={this.handleFontSize}
+            type="range"
+            id="vol"
+            name="vol"
+            min="0"
+            max="80"
+          />
         </div>
-        <Card data={data} state={this.state.intialValue} />
+        <Card data={data} state={this.state} />
       </>
     );
   }

@@ -178,3 +178,22 @@ li p {
 li span {
   color: rgb(61, 87, 9);
 }
+
+.Poppins {
+  font-family: 'Poppins', sans-serif;
+}
+.Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.Oreglega-One {
+  font-family: 'Orelega One', cursive;
+}
+.Open-Sans {
+  font-family: 'Open Sans', sans-serif;
+}
+.Source-Sans-Pro {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.Ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
