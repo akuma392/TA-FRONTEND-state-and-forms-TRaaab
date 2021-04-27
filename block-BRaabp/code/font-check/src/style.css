@@ -1,0 +1,199 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Orelega+One&family=Poppins&family=Roboto&family=Ubuntu&display=swap');
+
+.rootElm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2.4rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.4rem;
+  color: tomato;
+  text-align: center;
+}
+.block {
+  max-width: 900px;
+  margin: 1.4rem auto;
+  width: 100%;
+}
+#inp {
+  margin-right: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+li {
+  min-height: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 1.4rem;
+  border-radius: 10px;
+  background-color: rgb(109, 160, 160);
+}
+li h2 {
+  margin: 2rem 0 1.4rem 0;
+}
+li div {
+  display: flex;
+  justify-content: space-between;
+}
+
+li p {
+  font-size: 1.1rem;
+  color: rgb(126, 22, 4);
+}
+li span {
+  color: rgb(61, 87, 9);
+}
+
+.Poppins {
+  font-family: 'Poppins', sans-serif;
+}
+.Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.Oreglega-One {
+  font-family: 'Orelega One', cursive;
+}
+.Open-Sans {
+  font-family: 'Open Sans', sans-serif;
+}
+.Source-Sans-Pro {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.Ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}

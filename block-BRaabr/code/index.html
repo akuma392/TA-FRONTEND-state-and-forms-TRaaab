@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c91808f2e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root">
+      <!-- <form action="">
+        <label for="text"> Text Input </label>
+        <input type="text" />
+        <label for="date"> Date Input </label>
+        <input type="date" />
+        <label for="file"> file Input </label>
+        <input type="file" />
+        <label for="textarea"> Text area </label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="submit" />
+      </form> -->
+    </div>
+    <script type="text/babel">
+      let root = document.querySelector('#root');
+      class Faq extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            initialText: '',
+          };
+        }
+
+        handleSubmit = (event) => {
+          event.preventDefault();
+          alert(`hello ${this.state.initialText}`);
+        };
+        handleChange = (event) => {
+          this.setState({
+            initialText: event.target.value,
+          });
+        };
+        render() {
+          return (
+            <>
+              <form action="" onSubmit={this.handleSubmit}>
+                <label htmlFor="text"> Text Input </label>
+                <input
+                  onChange={this.handleChange}
+                  type="text"
+                  value={this.state.initialText}
+                />
+                <label htmlFor="date"> Date Input </label>
+                <input type="date" />
+                <label htmlFor="file"> file Input </label>
+                <input type="text" value={this.state.initialText} disabled />
+                <input type="file" />
+                <label htmlFor="textarea"> Text area </label>
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  value={this.state.initialText}
+                  onChange={this.handleChange}
+                ></textarea>
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="4"
+                  value={this.state.initialText}
+                  disabled
+                ></textarea>
+                <input type="submit" value="submit" />
+              </form>
+            </>
+          );
+        }
+      }
+
+      ReactDOM.render(<Faq />, root);
+    </script>
+  </body>
+</html>
