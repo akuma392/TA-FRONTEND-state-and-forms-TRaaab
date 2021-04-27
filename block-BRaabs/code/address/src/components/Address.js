@@ -5,7 +5,7 @@ import Shipping from './Shipping';
 class Address extends React.Component {
   constructor(props) {
     super(props);
-    this.State = {
+    this.state = {
       address: '',
       pin: '',
       city: '',
@@ -22,8 +22,8 @@ class Address extends React.Component {
   render() {
     return (
       <div className="address">
-        <Billing data={this.State} handleInput={this.handleInput} />
-        <Shipping data={this.State} handleInput={this.handleInput} />
+        <Billing data={this.state} handleInput={this.handleInput} />
+        <Shipping data={this.state} handleInput={this.handleInput} />
       </div>
     );
   }
