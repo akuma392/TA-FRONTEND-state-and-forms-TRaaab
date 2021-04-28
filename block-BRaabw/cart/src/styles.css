@@ -1,0 +1,41 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+#prod img {
+  height: 300px;
+}
+
+.size {
+  flex: 0 1 18%;
+}
+#prod {
+  flex: 0 1 80%;
+}
+
+#prod li {
+  position: relative;
+}
+
+.shipp-element {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background-color: black;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.3rem;
+}
+
+button {
+  background-color: black;
+  width: 100%;
+  color: white;
+  padding: 0.75rem 1rem;
+}
+
+#prod li:hover button {
+  background-color: yellow;
+}
