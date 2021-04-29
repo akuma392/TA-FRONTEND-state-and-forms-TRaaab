@@ -6,7 +6,11 @@ function Size(props) {
         {props.size.map((elm) => {
           return (
             <div className="pr-5 ">
-              <a className="bg-gray-200 text-xs p-1" href="">
+              <a
+                className="bg-gray-200 text-xs p-1"
+                href=""
+                onClick={() => props.handleSize(elm)}
+              >
                 {elm}
               </a>
             </div>

@@ -1,11 +1,11 @@
-import React from 'react';
-import OrderBy from './OrderBy';
+import React from "react";
+import OrderBy from "./OrderBy";
 
 class Products extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOrder: '',
+      selectedOrder: "",
     };
   }
   handleOrderBy = (event) => {
@@ -14,10 +14,10 @@ class Products extends React.Component {
 
   handleOrderProducts = (order, products) => {
     let sortedProducts = [...products];
-    if (order === 'highest') {
+    if (order === "highest") {
       sortedProducts = sortedProducts.sort((a, b) => b.price - a.price);
     }
-    if (order === 'lowest') {
+    if (order === "lowest") {
       sortedProducts = sortedProducts.sort((a, b) => a.price - b.price);
     }
     return sortedProducts;
@@ -32,8 +32,8 @@ class Products extends React.Component {
         <div className="products-filter">
           <p>
             {`${this.props.data.length} Product${
-              this.props.data.length > 1 ? 's' : ''
-            } found.`}{' '}
+              this.props.data.length > 1 ? "s" : ""
+            } found.`}{" "}
           </p>
           <OrderBy
             selectedOrder={selectedOrder}
