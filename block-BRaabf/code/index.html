@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c91808f2e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root">
+      <!-- <h1>0</h1>
+      <div class="step">
+        <h3>Steps</h3>
+        <button id="btn">5</button><button id="btn">10</button
+        ><button id="btn">15</button>
+      </div>
+
+      <div class="counter">
+        <button class="btn">Increment</button
+        ><button class="btn">Decrement</button
+        ><button class="btn">Reset</button>
+      </div> -->
+    </div>
+    <script type="text/babel">
+      let root = document.querySelector('#root');
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+
+          this.step = [5, 10, 15];
+          this.max = [15, 100, 200];
+          this.state = {
+            counter: 0,
+            step: 1,
+            max: 1000,
+          };
+        }
+
+        handleIncrement = () => {
+          let { step, counter, max } = this.state;
+          this.setState({
+            counter: counter + step > max ? counter : counter + step,
+          });
+        };
+        handleDecrement = () => {
+          this.setState({
+            counter: this.state.counter - this.state.step,
+          });
+        };
+        handleReset = () => {
+          this.setState({
+            counter: 0,
+          });
+        };
+
+        handleStep = (event) => {
+          console.log(event.target.innerText, this.state.step);
+          let val = Number(event.target.innerText);
+          this.setState({
+            step: val,
+          });
+        };
+        handleMax = (event) => {
+          let value = Number(event.target.innerText);
+          this.setState({
+            max: value,
+          });
+        };
+        handleCheck = () => {
+          // alert('you have exceeded the max value');
+          // console.log(this.state.counter);
+
+          return this.state.counter;
+        };
+        render() {
+          return (
+            <center>
+              <h1>{this.state.counter}</h1>
+              {this.state.counter === this.state.max
+                ? alert('You have reached max value')
+                : ''}
+              <div className="step">
+                <h3>Steps</h3>
+                {this.step.map((elm) => (
+                  <button
+                    className="btm"
+                    id={this.state.step === elm ? 'active' : ''}
+                    key={elm}
+                    onClick={this.handleStep}
+                  >
+                    {elm}
+                  </button>
+                ))}
+              </div>
+              <div>
+                <h3>Max</h3>
+                {this.max.map((m) => (
+                  <button
+                    className="btm"
+                    key={m}
+                    id={this.state.max === m ? 'activeBtn' : ''}
+                    onClick={this.handleMax}
+                  >
+                    {m}
+                  </button>
+                ))}
+              </div>
+              <div className="counter">
+                <button className="btn" onClick={this.handleIncrement}>
+                  Increment
+                </button>
+                <button className="btn" onClick={this.handleDecrement}>
+                  Decrement
+                </button>
+                <button className="btn" onClick={this.handleReset}>
+                  Reset
+                </button>
+              </div>
+            </center>
+          );
+        }
+      }
+
+      ReactDOM.render(<Counter />, root);
+    </script>
+  </body>
+</html>
